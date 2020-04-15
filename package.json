@@ -1,0 +1,32 @@
+{
+  "name": "codeprodigies",
+  "version": "1.0.0",
+  "description": "Data Structures and Algorithms Microcourses",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "create:problem": "cd ./packages/problems && node createProblem.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FMurray/codeprodigies.git"
+  },
+  "keywords": [
+    "learning",
+    "data",
+    "structures",
+    "algorithms",
+    "technical",
+    "interview"
+  ],
+  "author": "Forrest Murray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FMurray/codeprodigies/issues"
+  },
+  "homepage": "https://github.com/FMurray/codeprodigies#readme",
+  "dependencies": {
+    "inquirer": "^7.1.0",
+    "yargs": "^15.3.1"
+  }
+}
