@@ -1,5 +1,1 @@
-const problems = {
-    findPivot: {
-        category: "Array"
-    }
-}
+exports.problems = {};

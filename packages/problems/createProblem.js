@@ -22,16 +22,26 @@ inquirer.prompt([
         choices: getProblemTypes()
     }
 ]).then((answers) => {
-    fs.writeFile(`./${answers.problemType}/${answers.problemName}.js`, generateProblemTemplate(answers.problemName), err => {
-        if (err) {
-            console.error(err)
-            return
-        }
-    })
+    fs.writeFileSync(`./${answers.problemType}/${answers.problemName}.js`, generateProblemTemplate(answers.problemName), handleWriteError )
+    fs.appendFileSync('./problems.js', `\nproblems[${answers.problemName}] = ${buildProblemMetadata(answers)}`, handleWriteError)
 })
 
 function getProblemTypes() {
     return fs.readdirSync(path.resolve(__dirname), {withFileTypes: true})
         .filter(dir => dir.isDirectory() && dir.name.charAt(0) != "_")
         .map(dir => dir.name)
+}
+
+function buildProblemMetadata(answers) {
+    return `{
+        type: ${answers.problemType}
+    }
+    `
+}
+
+function handleWriteError(err) {
+    if (err) {
+        console.error(err)
+        return
+    }
 }
