@@ -6,7 +6,7 @@ const { generateProblemTemplate } = require('./problemTemplate');
 inquirer.prompt([
     {   
         name: "problemName",
-        message: "What's the problem called?",
+        message: "What's the problem called? in camelCase",
         default: "",
         validate: (val) => {
             if(val.length == 0) {
