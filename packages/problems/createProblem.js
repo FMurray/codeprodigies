@@ -20,6 +20,11 @@ inquirer.prompt([
         name: "problemType",
         message: "What's the type of the problem?",
         choices: getProblemTypes()
+    },
+    {
+        name: "tags",
+        message: "add some tags, separated by a comma",
+        type: "input"
     }
 ]).then((answers) => {
     fs.writeFileSync(`./${answers.problemType}/${answers.problemName}.js`, generateProblemTemplate(answers.problemName), handleWriteError )
@@ -34,7 +39,8 @@ function getProblemTypes() {
 
 function buildProblemMetadata(answers) {
     return `{
-        type: ${answers.problemType}
+        type: ${answers.problemType},
+        tags: [${answers.tags.split(",").map(val => val.trim())}]
     }
     `
 }
