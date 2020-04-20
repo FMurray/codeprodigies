@@ -1,0 +1,9 @@
+// Taken from Interview Cake  
+// -->  https://www.interviewcake.com/question/javascript/merge-sorted-arrays?course=fc1&section=array-and-string-manipulation
+
+// We have 2 sorted arrays. Write a function to merge these arrays into one array. We want to execute in linear time, but are // not concerned with space complexity at this time.  
+
+
+function mergeArrays(arr1, arr2) {
+
+}
